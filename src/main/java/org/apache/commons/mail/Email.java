@@ -635,14 +635,14 @@ public abstract class Email
     public Session getMailSession() throws EmailException
     {
         if (session == null) {
-            properties = new Properties(System.getProperties());
+            Properties properties = new Properties(System.getProperties());
             properties.setProperty(EmailConstants.MAIL_TRANSPORT_PROTOCOL, EmailConstants.SMTP);
 
-            if (EmailUtils.isEmpty(hostname)) {
-                hostname = properties.getProperty(EmailConstants.MAIL_HOST);
+            if (EmailUtils.isEmpty(hostName)) {
+                hostName = properties.getProperty(EmailConstants.MAIL_HOST);
             }
 
-            if (EmailUtils.isEmpty(hostname)) {
+            if (EmailUtils.isEmpty(hostName)) {
                 throw new EmailException("Cannot find valid hostname for mail session");
             }
 
