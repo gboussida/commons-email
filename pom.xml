@@ -305,6 +305,7 @@
 			<version>1.13.1</version> <!-- use the latest version -->
 		</dependency>
 
+
     </dependencies>
 
     <properties>
@@ -432,6 +433,13 @@
               <excludeFilterFile>${basedir}/src/conf/spotbugs-exclude-filter.xml</excludeFilterFile>
             </configuration>
           </plugin>
+            <!--Pitest-->
+            <plugin>
+                <groupId>org.pitest</groupId>
+                <artifactId>pitest-maven</artifactId>
+                <version>1.15.3</version>
+            </plugin>
+
         </plugins>
     </build>
 

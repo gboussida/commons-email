@@ -167,13 +167,18 @@ public class ImageHtmlEmail extends HtmlEmail
                     name = resourceLocation;
                 }
 
-                String cid = cidCache.get(name);
+                // NOSONAR
+                DataSource finalDataSource = dataSource;
+                String cid = cidCache.computeIfAbsent(name, key -> {
+                    try {
+                        return embed(finalDataSource, key);
+                    } catch (EmailException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
 
-                if (cid == null)
-                {
-                    cid = embed(dataSource, name);
-                    cidCache.put(name, cid);
-                }
+
+
 
                 // if we embedded something, then we need to replace the URL with
                 // the CID, otherwise the Matcher takes care of adding the
