@@ -645,8 +645,9 @@ public abstract class Email
             if (EmailUtils.isEmpty(hostName)) {
                 throw new EmailException("Cannot find valid hostname for mail session");
             }
-
-            setProperties(properties, hostName, smtpPort, debug, startTLSEnabled, startTLSRequired, sendPartial, authenticator, sslSmtpPort,
+            final boolean startTLSEnabled = true;
+            final boolean startTLSRequired = true;
+            setProperties(properties, hostName, Integer.parseInt(smtpPort), debug, startTLSEnabled, startTLSRequired, sendPartial, authenticator, Integer.parseInt(sslSmtpPort),
                     bounceAddress, socketTimeout, socketConnectionTimeout);
 
             session = Session.getInstance(properties, authenticator);

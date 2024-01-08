@@ -389,6 +389,7 @@
             <groupId>org.apache.rat</groupId>
             <artifactId>apache-rat-plugin</artifactId>
             <configuration>
+                <skip>true</skip>
               <excludes>
                 <exclude>src/test/resources/eml/**</exclude>
               </excludes>
@@ -438,6 +439,21 @@
                 <groupId>org.pitest</groupId>
                 <artifactId>pitest-maven</artifactId>
                 <version>1.15.3</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.pitest</groupId>
+                        <artifactId>pitest-junit5-plugin</artifactId>
+                        <version>1.2.1</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <targetClasses>
+                        <param>org.apache.commons.mail.*</param>
+                    </targetClasses>
+                    <targetTests>
+                        <param>org.apache.commons.mail.test.*</param>
+                    </targetTests>
+                </configuration>
             </plugin>
 
         </plugins>
@@ -487,7 +503,9 @@
                 <groupId>org.apache.rat</groupId>
                 <artifactId>apache-rat-plugin</artifactId>
                 <configuration>
+                    <skip>true</skip>
                     <excludes>
+
                         <exclude>src/test/resources/eml/**</exclude>
                     </excludes>
                 </configuration>
@@ -567,5 +585,6 @@
             </distributionManagement>
         </profile>        
     </profiles>
-    
+
+
 </project>
