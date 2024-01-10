@@ -243,6 +243,18 @@
 
     <dependencies>
         <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.evosuite</groupId>
+            <artifactId>evosuite-standalone-runtime</artifactId>
+            <version>1.0.6</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>com.sun.mail</groupId>
             <artifactId>jakarta.mail</artifactId>
             <version>1.6.7</version>
@@ -398,6 +410,7 @@
                 <groupId>org.apache.rat</groupId>
                 <artifactId>apache-rat-plugin</artifactId>
                 <configuration>
+                    <skip>true</skip>
                     <excludes>
                         <exclude>src/test/resources/eml/**</exclude>
                     </excludes>
@@ -493,8 +506,20 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.evosuite.plugins</groupId>
+                <artifactId>evosuite-maven-plugin</artifactId>
+                <version>1.0.6</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare</goal>
+                        </goals>
+                        <phase>process-test-classes</phase>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
-
     </build>
 
 
@@ -546,6 +571,7 @@
                 <groupId>org.apache.rat</groupId>
                 <artifactId>apache-rat-plugin</artifactId>
                 <configuration>
+                    <skip>true</skip>
                     <excludes>
                         <exclude>src/test/resources/eml/**</exclude>
                     </excludes>
@@ -598,6 +624,14 @@
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
                         <version>3.2.3</version>
+                        <configuration>
+                            <properties>
+                                <property>
+                                    <name>listener</name>
+                                    <value>org.evosuite.runtime.InitializingListener</value>
+                                </property>
+                            </properties>
+                        </configuration>
                         <!--                <configuration>-->
                         <!--                <argLine>-->
                         <!--                    -illegal-access=permit-->
