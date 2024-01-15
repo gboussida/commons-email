@@ -1319,9 +1319,7 @@ public abstract class Email
         {
             this.message = this.createMimeMessage(this.getMailSession());
 
-            if (EmailUtils.isNotEmpty(this.subject))
-            {
-                if (EmailUtils.isNotEmpty(this.charset))
+            if ((EmailUtils.isNotEmpty(this.subject))&&(EmailUtils.isNotEmpty(this.charset)))
                 {
                     this.message.setSubject(this.subject, this.charset);
                 }
