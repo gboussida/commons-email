@@ -57,7 +57,7 @@ public abstract class Email
     private static final InternetAddress[] EMPTY_INTERNET_ADDRESS_ARRAY = new InternetAddress[0];
     
     // Define the constant for the repeated literal " Address List provided was invalid " 
-    private static final String INVALID_ADDRESS_LIST_MSG = INVALID_ADDRESS_LIST_MSG;
+    private static final String INVALID_ADDRESS_LIST_MSG  = "Address List provided was invalid";
     
     /** @deprecated since 1.3, use {@link EmailConstants#SENDER_EMAIL} instead */
     @Deprecated
