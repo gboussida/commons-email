@@ -1327,35 +1327,24 @@ public abstract class Email
             // update content type (and encoding)
             this.updateContentType(this.contentType);
 
-            if (this.content != null)
-            {
-                if (EmailConstants.TEXT_PLAIN.equalsIgnoreCase(this.contentType)
-                        && this.content instanceof String)
-                {
-                    // EMAIL-104: call explicitly setText to use default mime charset
-                    //            (property "mail.mime.charset") in case none has been set
-                    this.message.setText(this.content.toString(), this.charset);
-                }
-                else
-                {
-                    this.message.setContent(this.content, this.contentType);
-                }
-            }
-            else if (this.emailBody != null)
-            {
-                if (this.contentType == null)
-                {
-                    this.message.setContent(this.emailBody);
-                }
-                else
-                {
-                    this.message.setContent(this.emailBody, this.contentType);
-                }
-            }
-            else
-            {
-                this.message.setText("");
-            }
+            if (this.content != null) {
+    boolean isTextPlainAndString = EmailConstants.TEXT_PLAIN.equalsIgnoreCase(this.contentType)
+                                   && this.content instanceof String;
+
+    if (isTextPlainAndString) {
+        this.message.setText(this.content.toString(), this.charset);
+    } else {
+        this.message.setContent(this.content, this.contentType);
+    }
+} else if (this.emailBody != null) {
+    if (this.contentType == null) {
+        this.message.setContent(this.emailBody);
+    } else {
+        this.message.setContent(this.emailBody, this.contentType);
+    }
+} else {
+    this.message.setText("");
+}
 
             if (this.fromAddress != null)
             {
