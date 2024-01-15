@@ -55,7 +55,10 @@ import org.apache.commons.mail.util.IDNEmailAddressConverter;
 public abstract class Email
 {
     private static final InternetAddress[] EMPTY_INTERNET_ADDRESS_ARRAY = new InternetAddress[0];
-
+    
+    // Define the constant for the repeated literal " Address List provided was invalid " 
+    private static final String INVALID_ADDRESS_LIST_MSG = INVALID_ADDRESS_LIST_MSG;
+    
     /** @deprecated since 1.3, use {@link EmailConstants#SENDER_EMAIL} instead */
     @Deprecated
     public static final String SENDER_EMAIL = EmailConstants.SENDER_EMAIL;
@@ -788,7 +791,7 @@ public abstract class Email
     {
         if (emails == null || emails.length == 0)
         {
-            throw new EmailException("Address List provided was invalid");
+            throw new EmailException(INVALID_ADDRESS_LIST_MSG);
         }
 
         for (final String email : emails)
@@ -853,7 +856,7 @@ public abstract class Email
     {
         if (aCollection == null || aCollection.isEmpty())
         {
-            throw new EmailException("Address List provided was invalid");
+            throw new EmailException(INVALID_ADDRESS_LIST_MSG);
         }
 
         this.toList = new ArrayList<>(aCollection);
@@ -898,7 +901,7 @@ public abstract class Email
     {
         if (emails == null || emails.length == 0)
         {
-            throw new EmailException("Address List provided was invalid");
+            throw new EmailException(INVALID_ADDRESS_LIST_MSG);
         }
 
         for (final String email : emails)
@@ -962,7 +965,7 @@ public abstract class Email
     {
         if (aCollection == null || aCollection.isEmpty())
         {
-            throw new EmailException("Address List provided was invalid");
+            throw new EmailException(INVALID_ADDRESS_LIST_MSG);
         }
 
         this.ccList = new ArrayList<>(aCollection);
@@ -1007,7 +1010,7 @@ public abstract class Email
     {
         if (emails == null || emails.length == 0)
         {
-            throw new EmailException("Address List provided was invalid");
+            throw new EmailException(INVALID_ADDRESS_LIST_MSG);
         }
 
         for (final String email : emails)
@@ -1071,7 +1074,7 @@ public abstract class Email
     {
         if (aCollection == null || aCollection.isEmpty())
         {
-            throw new EmailException("Address List provided was invalid");
+            throw new EmailException(INVALID_ADDRESS_LIST_MSG);
         }
 
         this.bccList = new ArrayList<>(aCollection);
@@ -1150,7 +1153,7 @@ public abstract class Email
     {
         if (aCollection == null || aCollection.isEmpty())
         {
-            throw new EmailException("Address List provided was invalid");
+            throw new EmailException(INVALID_ADDRESS_LIST_MSG);
         }
 
         this.replyList = new ArrayList<>(aCollection);
