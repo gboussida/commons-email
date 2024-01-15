@@ -1319,17 +1319,10 @@ public abstract class Email
         {
             this.message = this.createMimeMessage(this.getMailSession());
 
-            if (EmailUtils.isNotEmpty(this.subject))
-               {
-                if (EmailUtils.isNotEmpty(this.charset))
-                {
-                    this.message.setSubject(this.subject, this.charset);
-                }
-                else
-                {
-                    this.message.setSubject(this.subject);
-                }
+            if (EmailUtils.isNotEmpty(this.subject)) {
+            this.message.setSubject(this.subject, EmailUtils.isNotEmpty(this.charset) ? this.charset : null);
             }
+
 
             // update content type (and encoding)
             this.updateContentType(this.contentType);
