@@ -77,14 +77,6 @@ public final class EmailConstants
     /** defines the text/plain content type */
     public static final String TEXT_PLAIN = "text/plain";
 
-    /////////////////////////////////////////////////////////////////////////
-    // since 1.1
-    /////////////////////////////////////////////////////////////////////////
-
-    /** @deprecated since 1.3 */
-    @Deprecated
-    public static final String MAIL_TRANSPORT_TLS = "mail.smtp.starttls.enable";
-
     /**
      * Indicates if the STARTTLS command shall be used to initiate a TLS-secured connection.
      * @since 1.1
