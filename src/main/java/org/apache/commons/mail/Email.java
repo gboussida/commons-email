@@ -650,7 +650,7 @@ public abstract class Email
             }
             final boolean startTLSEnabled = true;
             final boolean startTLSRequired = true;
-            setProperties(properties, hostName, Integer.parseInt(smtpPort), debug, startTLSEnabled, startTLSRequired, sendPartial, authenticator, Integer.parseInt(sslSmtpPort),
+            setProperties(properties, hostName, Integer.parseInt(smtpPort), debug, startTLSEnabled, authenticator, Integer.parseInt(sslSmtpPort),
                     bounceAddress, socketTimeout, socketConnectionTimeout);
 
             session = Session.getInstance(properties, authenticator);
