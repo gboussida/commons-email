@@ -34,11 +34,13 @@ import java.util.logging.Logger;
  * @since 1.0
  */
 
-private static final Logger LOGGER = Logger.getLogger(EmailException.class.getName());
-
 public class EmailException
         extends Exception
 {
+        
+        /**logger */
+        private static final Logger LOGGER = Logger.getLogger(EmailException.class.getName());
+
     /** Serializable version identifier. */
     private static final long serialVersionUID = 5550674499282474616L;
 
