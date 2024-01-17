@@ -38,17 +38,20 @@ public class IDNEmailAddressConverter
      * @param email email address.
      * @return The ASCII representation
      */
-    public String toASCII(final String email)
-    {
-        final int idx = findAtSymbolIndex(email);
+    public String toASCII(final String email) {
+    int atSymbolIndex = findAtSymbolIndex(email);
 
-        if (idx < 0)
-        {
-            return email;
-        }
-
-        return getLocalPart(email, idx) + '@' + IDN.toASCII(getDomainPart(email, idx));
+    // If no '@' symbol is found, or if it's the first/last character, return the email as is.
+    if (atSymbolIndex <= 0 || atSymbolIndex >= email.length() - 1) {
+        return email;
     }
+
+    String localPart = email.substring(0, atSymbolIndex);
+    String domainPart = email.substring(atSymbolIndex + 1);
+
+    return localPart + "@" + IDN.toASCII(domainPart);
+}
+
 
     /**
      * Convert the address part of an InternetAddress to its Unicode representation.
