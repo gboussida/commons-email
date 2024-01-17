@@ -160,7 +160,7 @@ public abstract class Email
      */
     @Deprecated
     protected boolean tls;
-    @Deprecated
+
     protected boolean ssl;
     /** socket I/O timeout value in milliseconds. */
     protected int socketTimeout = EmailConstants.SOCKET_TIMEOUT_MS;
