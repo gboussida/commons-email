@@ -257,8 +257,6 @@ public class HtmlEmail extends MultiPartEmail
             throw new EmailException("name cannot be null or empty");
         }
 
-        *// check if a URLDataSource for this name has already been attached;/
-        *// if so, return the cached CID value./
         final InlineImage ii = inlineEmbeds.get(name);
         if (ii != null)
         {
@@ -579,9 +577,6 @@ public class HtmlEmail extends MultiPartEmail
             //            (property "mail.mime.charset") in case none has been set
             msgHtml.setText(this.html, this.charset, EmailConstants.TEXT_SUBTYPE_HTML);
 
-            *// EMAIL-147: work-around for buggy JavaMail implementations;/
-            //            in case setText(...) does not set the correct content type,
-            //            use the setContent() method instead.
             final String contentType = msgHtml.getContentType();
             if (contentType == null || !contentType.equals(EmailConstants.TEXT_HTML))
             {
