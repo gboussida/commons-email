@@ -108,17 +108,12 @@ public class EmailException
      * @param out  the {@code PrintStream} to use for output
      */
     @Override
-    public void printStackTrace(final PrintStream out)
-    {
-        synchronized (out)
-        {
+        public void printStackTrace(final PrintStream out) {
             final PrintWriter pw = new PrintWriter(new OutputStreamWriter(out, Charset.defaultCharset()), false);
             printStackTrace(pw);
-
             // Flush the PrintWriter before it's GC'ed.
             pw.flush();
         }
-    }
 
     /**
      * Prints the stack trace of this exception to the specified writer.
