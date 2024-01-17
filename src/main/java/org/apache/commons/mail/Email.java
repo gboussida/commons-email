@@ -507,8 +507,7 @@ public abstract class Email
             if (EmailUtils.isEmpty(hostName)) {
                 throw new EmailException("Cannot find valid hostname for mail session");
             }
-            final boolean startTLSEnabled = true;
-            final boolean startTLSRequired = true;
+            
             setProperties(properties, hostName, Integer.parseInt(smtpPort), debug, authenticator, Integer.parseInt(sslSmtpPort),
                     bounceAddress, socketTimeout, socketConnectionTimeout);
 
