@@ -158,7 +158,9 @@ public abstract class Email
      * Does server require TLS encryption for authentication?
      * @deprecated  since 1.3, use setStartTLSEnabled() instead
      */
+    @Deprecated
     protected boolean tls;
+    @Deprecated
     protected boolean ssl;
     /** socket I/O timeout value in milliseconds. */
     protected int socketTimeout = EmailConstants.SOCKET_TIMEOUT_MS;
