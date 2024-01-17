@@ -90,12 +90,14 @@ public class EmailException
      * Prints the stack trace of this exception to the standard error stream.
      */
     @Override
-    public void printStackTrace()
+    public void printStackTrace() {
     try {
         throw new Exception();
     } catch (Exception e) {
         LOGGER.log(Level.SEVERE, "Exception caught", e);
+    }    
     }
+
 
     /**
      * Prints the stack trace of this exception to the specified stream.
