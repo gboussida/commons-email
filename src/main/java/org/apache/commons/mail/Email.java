@@ -152,8 +152,8 @@ public abstract class Email
     public static final String TEXT_PLAIN = EmailConstants.TEXT_PLAIN;
 
     /** @deprecated since 1.3, use {@link EmailConstants#MAIL_TRANSPORT_TLS} instead */
-    @Deprecated
-    public static final String MAIL_TRANSPORT_TLS = EmailConstants.MAIL_TRANSPORT_TLS;
+    /**@Deprecated*/
+    /**public static final String MAIL_TRANSPORT_TLS = EmailConstants.MAIL_TRANSPORT_TLS;*/
 
     /** @deprecated since 1.3, use {@link EmailConstants#MAIL_SMTP_SOCKET_FACTORY_FALLBACK} instead */
     @Deprecated
