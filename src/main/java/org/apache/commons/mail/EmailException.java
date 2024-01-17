@@ -123,9 +123,6 @@ public class EmailException
     @Override
     public void printStackTrace(final PrintWriter out)
     {
-        synchronized (out)
-        {
             super.printStackTrace(out);
-        }
     }
 }
