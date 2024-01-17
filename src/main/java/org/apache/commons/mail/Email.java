@@ -659,7 +659,7 @@ public abstract class Email
     }
 
     private void setProperties(Properties properties, String hostName, int smtpPort, boolean debug, boolean startTLSEnabled,
-                               boolean startTLSRequired, boolean sendPartial, Authenticator authenticator, int sslSmtpPort,
+                               Authenticator authenticator, int sslSmtpPort,
                                String bounceAddress, int socketTimeout, int socketConnectionTimeout) {
 
         properties.setProperty(EmailConstants.MAIL_HOST, hostName);
@@ -1436,15 +1436,18 @@ public abstract class Email
             Transport.send(this.message);
             return this.message.getMessageID();
         }
-        catch (final Throwable t)
-        {
-            final String msg = "Sending the email to the following server failed : "
+        catch (final MessagingException e) {
+        // Catch specific messaging exceptions
+        final String msg = "Sending the email to the following server failed : "
                 + this.getHostName()
                 + ":"
                 + this.getSmtpPort();
-
-            throw new EmailException(msg, t);
-        }
+        throw new EmailException(msg, e);
+    } catch (final Exception e) {
+        // Catch other exceptions that might occur
+        final String msg = "Unexpected error occurred while sending email";
+        throw new EmailException(msg, e);
+    }
     }
 
     /**
