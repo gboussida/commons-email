@@ -47,7 +47,7 @@ import javax.mail.internet.MimeUtility;
  */
 public class MultiPartEmail extends Email
 {
-    /** Invalid datasource message *// 
+    /** Invalid datasource message */
     private static final String INVALID_DATASOURCE_MESSAGE = "Invalid Datasource";
     
     /** Body portion of the email. */
