@@ -73,10 +73,11 @@ public class IDNEmailAddressConverter
      * @param email email address.
      * @return The Unicode representation
      */
-    String toUnicode(final String email)
+    public String toUnicode(final String email) {
     if (email == null) {
         return null;
-        }
+    }
+
     int atSymbolIndex = findAtSymbolIndex(email);
 
     // Check if '@' symbol is not found, or if it's the first/last character
@@ -88,7 +89,8 @@ public class IDNEmailAddressConverter
     String domainPart = email.substring(atSymbolIndex + 1);
 
     return localPart + "@" + IDN.toUnicode(domainPart);
-    }
+}
+
 
     /**
      * Extracts the local part of the email address.
