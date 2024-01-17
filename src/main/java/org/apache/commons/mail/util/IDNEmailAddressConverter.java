@@ -39,6 +39,9 @@ public class IDNEmailAddressConverter
      * @return The ASCII representation
      */
     public String toASCII(final String email) {
+        if (email == null) {
+        return null;
+        }
     int atSymbolIndex = findAtSymbolIndex(email);
 
     // If no '@' symbol is found, or if it's the first/last character, return the email as is.
