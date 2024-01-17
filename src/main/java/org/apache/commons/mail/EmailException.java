@@ -21,6 +21,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.nio.charset.Charset;
+import java.util.logging.Logger;
 
 /**
  * Exception thrown when a checked error occurs in commons-email.
@@ -32,6 +33,9 @@ import java.nio.charset.Charset;
  *
  * @since 1.0
  */
+
+private static final Logger LOGGER = Logger.getLogger(EmailException.class.getName());
+
 public class EmailException
         extends Exception
 {
@@ -87,8 +91,10 @@ public class EmailException
      */
     @Override
     public void printStackTrace()
-    {
-        printStackTrace(System.err);
+    try {
+        throw new Exception();
+    } catch (Exception e) {
+        LOGGER.log(Level.SEVERE, "Exception caught", e);
     }
 
     /**
