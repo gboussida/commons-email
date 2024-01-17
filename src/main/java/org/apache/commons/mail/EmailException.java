@@ -22,6 +22,7 @@ import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.nio.charset.Charset;
 import java.util.logging.Logger;
+import java.util.logging.Level;
 
 /**
  * Exception thrown when a checked error occurs in commons-email.
