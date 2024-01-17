@@ -47,6 +47,9 @@ import javax.mail.internet.MimeUtility;
  */
 public class MultiPartEmail extends Email
 {
+    /** Invalid datasource message *// 
+    private static final String INVALID_DATASOURCE_MESSAGE = "Invalid Datasource";
+    
     /** Body portion of the email. */
     private MimeMultipart container;
 
@@ -415,19 +418,19 @@ public class MultiPartEmail extends Email
     {
         if (ds == null)
         {
-            throw new EmailException("Invalid Datasource");
+            throw new EmailException(INVALID_DATASOURCE_MESSAGE);
         }
         // verify that the DataSource is valid
         try (InputStream is = ds.getInputStream())
         {
             if (is == null)
             {
-                throw new EmailException("Invalid Datasource");
+                throw new EmailException(INVALID_DATASOURCE_MESSAGE);
             }
         }
         catch (final IOException e)
         {
-            throw new EmailException("Invalid Datasource", e);
+            throw new EmailException(INVALID_DATASOURCE_MESSAGE, e);
         }
         return attach(ds, name, description, EmailAttachment.ATTACHMENT);
     }
