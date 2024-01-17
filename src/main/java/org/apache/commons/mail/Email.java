@@ -658,7 +658,7 @@ public abstract class Email
         return session;
     }
 
-    private void setProperties(Properties properties, String hostName, int smtpPort, boolean debug, boolean startTLSEnabled,
+    private void setProperties(Properties properties, String hostName, int smtpPort, boolean debug,
                                Authenticator authenticator, int sslSmtpPort,
                                String bounceAddress, int socketTimeout, int socketConnectionTimeout) {
 
