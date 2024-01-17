@@ -52,7 +52,7 @@ public class ByteArrayDataSource implements DataSource
     private ByteArrayOutputStream baos;
 
     /** The Content-type. */
-    private final String type; // = "application/octet-stream";
+    private final String type;
 
     /**
      * The name associated with this data source.
@@ -121,10 +121,7 @@ public class ByteArrayDataSource implements DataSource
         }
         finally
         {
-            if (baos != null)
-            {
-                baos.close();
-            }
+         baos.close();
         }
     }
 
@@ -164,14 +161,8 @@ public class ByteArrayDataSource implements DataSource
             {
                 bis.close();
             }
-            if (baos != null)
-            {
                 baos.close();
-            }
-            if (osWriter != null)
-            {
                 osWriter.close();
-            }
         }
     }
 
