@@ -99,7 +99,7 @@ public class IDNEmailAddressConverter
      * @param idx index of '@' character.
      * @return local part of email
      */
-    private String getLocalPart(final String email, final int idx)
+    String getLocalPart(final String email, final int idx)
     {
         return email.substring(0, idx);
     }
@@ -111,7 +111,7 @@ public class IDNEmailAddressConverter
      * @param idx index of '@' character.
      * @return domain part of email
      */
-    private String getDomainPart(final String email, final int idx)
+    String getDomainPart(final String email, final int idx)
     {
         return email.substring(idx + 1);
     }
