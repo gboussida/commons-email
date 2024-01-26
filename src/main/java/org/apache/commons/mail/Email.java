@@ -55,10 +55,122 @@ import org.apache.commons.mail.util.IDNEmailAddressConverter;
 public abstract class Email
 {
     private static final InternetAddress[] EMPTY_INTERNET_ADDRESS_ARRAY = new InternetAddress[0];
-    
-    // Define the constant for the repeated literal " Address List provided was invalid " 
-    private static final String INVALID_ADDRESS_LIST_MSG  = "Address List provided was invalid";
-    
+
+    /** @deprecated since 1.3, use {@link EmailConstants#SENDER_EMAIL} instead */
+    @Deprecated
+    public static final String SENDER_EMAIL = EmailConstants.SENDER_EMAIL;
+
+    /** @deprecated since 1.3, use {@link EmailConstants#SENDER_NAME} instead */
+    @Deprecated
+    public static final String SENDER_NAME = EmailConstants.SENDER_NAME;
+
+    /** @deprecated since 1.3, use {@link EmailConstants#RECEIVER_EMAIL} instead */
+    @Deprecated
+    public static final String RECEIVER_EMAIL = EmailConstants.RECEIVER_EMAIL;
+
+    /** @deprecated since 1.3, use {@link EmailConstants#RECEIVER_NAME} instead */
+    @Deprecated
+    public static final String RECEIVER_NAME = EmailConstants.RECEIVER_NAME;
+
+    /** @deprecated since 1.3, use {@link EmailConstants#EMAIL_SUBJECT} instead */
+    @Deprecated
+    public static final String EMAIL_SUBJECT = EmailConstants.EMAIL_SUBJECT;
+
+    /** @deprecated since 1.3, use {@link EmailConstants#EMAIL_BODY} instead */
+    @Deprecated
+    public static final String EMAIL_BODY = EmailConstants.EMAIL_BODY;
+
+    /** @deprecated since 1.3, use {@link EmailConstants#CONTENT_TYPE} instead */
+    @Deprecated
+    public static final String CONTENT_TYPE = EmailConstants.CONTENT_TYPE;
+
+    /** @deprecated since 1.3, use {@link EmailConstants#ATTACHMENTS} instead */
+    @Deprecated
+    public static final String ATTACHMENTS = EmailConstants.ATTACHMENTS;
+
+    /** @deprecated since 1.3, use {@link EmailConstants#FILE_SERVER} instead */
+    @Deprecated
+    public static final String FILE_SERVER = EmailConstants.FILE_SERVER;
+
+    /** @deprecated since 1.3, use {@link EmailConstants#KOI8_R} instead */
+    @Deprecated
+    public static final String KOI8_R = EmailConstants.KOI8_R;
+
+    /** @deprecated since 1.3, use {@link EmailConstants#ISO_8859_1} instead */
+    @Deprecated
+    public static final String ISO_8859_1 = EmailConstants.ISO_8859_1;
+
+    /** @deprecated since 1.3, use {@link EmailConstants#US_ASCII} instead */
+    @Deprecated
+    public static final String US_ASCII = EmailConstants.US_ASCII;
+
+    /** @deprecated since 1.3, use {@link EmailConstants#MAIL_DEBUG} instead */
+    @Deprecated
+    public static final String MAIL_DEBUG = EmailConstants.MAIL_DEBUG;
+
+    /** @deprecated since 1.3, use {@link EmailConstants#MAIL_HOST} instead */
+    @Deprecated
+    public static final String MAIL_HOST = EmailConstants.MAIL_HOST;
+
+    /** @deprecated since 1.3, use {@link EmailConstants#MAIL_PORT} instead */
+    @Deprecated
+    public static final String MAIL_PORT = EmailConstants.MAIL_PORT;
+
+    /** @deprecated since 1.3, use {@link EmailConstants#MAIL_SMTP_FROM} instead */
+    @Deprecated
+    public static final String MAIL_SMTP_FROM = EmailConstants.MAIL_SMTP_FROM;
+
+    /** @deprecated since 1.3, use {@link EmailConstants#MAIL_SMTP_AUTH} instead */
+    @Deprecated
+    public static final String MAIL_SMTP_AUTH = EmailConstants.MAIL_SMTP_AUTH;
+
+    /** @deprecated since 1.3, use {@link EmailConstants#MAIL_SMTP_USER} instead */
+    @Deprecated
+    public static final String MAIL_SMTP_USER = EmailConstants.MAIL_SMTP_USER;
+
+    /** @deprecated since 1.3, use {@link EmailConstants#MAIL_SMTP_PASSWORD} instead */
+    @Deprecated
+    public static final String MAIL_SMTP_PASSWORD = EmailConstants.MAIL_SMTP_PASSWORD;
+
+    /** @deprecated since 1.3, use {@link EmailConstants#MAIL_TRANSPORT_PROTOCOL} instead */
+    @Deprecated
+    public static final String MAIL_TRANSPORT_PROTOCOL = EmailConstants.MAIL_TRANSPORT_PROTOCOL;
+
+    /** @deprecated since 1.3, use {@link EmailConstants#SMTP} instead */
+    @Deprecated
+    public static final String SMTP = EmailConstants.SMTP;
+
+    /** @deprecated since 1.3, use {@link EmailConstants#TEXT_HTML} instead */
+    @Deprecated
+    public static final String TEXT_HTML = EmailConstants.TEXT_HTML;
+
+    /** @deprecated since 1.3, use {@link EmailConstants#TEXT_PLAIN} instead */
+    @Deprecated
+    public static final String TEXT_PLAIN = EmailConstants.TEXT_PLAIN;
+
+    /** @deprecated since 1.3, use {@link EmailConstants#MAIL_TRANSPORT_TLS} instead */
+    @Deprecated
+    public static final String MAIL_TRANSPORT_TLS = EmailConstants.MAIL_TRANSPORT_TLS;
+
+    /** @deprecated since 1.3, use {@link EmailConstants#MAIL_SMTP_SOCKET_FACTORY_FALLBACK} instead */
+    @Deprecated
+    public static final String MAIL_SMTP_SOCKET_FACTORY_FALLBACK = EmailConstants.MAIL_SMTP_SOCKET_FACTORY_FALLBACK;
+
+    /** @deprecated since 1.3, use {@link EmailConstants#MAIL_SMTP_SOCKET_FACTORY_CLASS} instead */
+    @Deprecated
+    public static final String MAIL_SMTP_SOCKET_FACTORY_CLASS = EmailConstants.MAIL_SMTP_SOCKET_FACTORY_CLASS;
+
+    /** @deprecated since 1.3, use {@link EmailConstants#MAIL_SMTP_SOCKET_FACTORY_PORT} instead */
+    @Deprecated
+    public static final String MAIL_SMTP_SOCKET_FACTORY_PORT = EmailConstants.MAIL_SMTP_SOCKET_FACTORY_PORT;
+
+    /** @deprecated since 1.3, use {@link EmailConstants#MAIL_SMTP_CONNECTIONTIMEOUT} instead */
+    @Deprecated
+    public static final String MAIL_SMTP_CONNECTIONTIMEOUT = EmailConstants.MAIL_SMTP_CONNECTIONTIMEOUT;
+
+    /** @deprecated since 1.3, use {@link EmailConstants#MAIL_SMTP_TIMEOUT} instead */
+    @Deprecated
+    public static final String MAIL_SMTP_TIMEOUT = EmailConstants.MAIL_SMTP_TIMEOUT;
 
     /** The email message to send. */
     protected MimeMessage message;
@@ -161,7 +273,13 @@ public abstract class Email
     @Deprecated
     protected boolean tls;
 
+    /**
+     * Does the current transport use SSL/TLS encryption upon connection?
+     * @deprecated since 1.3, use setSSLOnConnect() instead
+     */
+    @Deprecated
     protected boolean ssl;
+
     /** socket I/O timeout value in milliseconds. */
     protected int socketTimeout = EmailConstants.SOCKET_TIMEOUT_MS;
 
@@ -360,8 +478,28 @@ public abstract class Email
         this.hostName = aHostName;
     }
 
+    /**
+     * Sets or disable the STARTTLS encryption. Please see EMAIL-105
+     * for the reasons of deprecation.
+     *
+     * @deprecated since 1.3, use setStartTLSEnabled() instead
+     * @param withTLS true if STARTTLS requested, false otherwise
+     * @since 1.1
+     */
+    @Deprecated
+    public void setTLS(final boolean withTLS)
+    {
+        setStartTLSEnabled(withTLS);
+    }
 
-
+    /**
+     * Sets or disable the STARTTLS encryption.
+     *
+     * @param startTlsEnabled true if STARTTLS requested, false otherwise
+     * @return An Email.
+     * @throws IllegalStateException if the mail session is already initialized
+     * @since 1.3
+     */
     public Email setStartTLSEnabled(final boolean startTlsEnabled)
     {
         checkSessionAlreadyInitialized();
@@ -496,62 +634,74 @@ public abstract class Email
      */
     public Session getMailSession() throws EmailException
     {
-        if (session == null) {
-            Properties properties = new Properties(System.getProperties());
+        if (this.session == null)
+        {
+            final Properties properties = new Properties(System.getProperties());
             properties.setProperty(EmailConstants.MAIL_TRANSPORT_PROTOCOL, EmailConstants.SMTP);
 
-            if (EmailUtils.isEmpty(hostName)) {
-                hostName = properties.getProperty(EmailConstants.MAIL_HOST);
+            if (EmailUtils.isEmpty(this.hostName))
+            {
+                this.hostName = properties.getProperty(EmailConstants.MAIL_HOST);
             }
 
-            if (EmailUtils.isEmpty(hostName)) {
+            if (EmailUtils.isEmpty(this.hostName))
+            {
                 throw new EmailException("Cannot find valid hostname for mail session");
             }
-            
-            setProperties(properties, hostName, Integer.parseInt(smtpPort), debug, authenticator, Integer.parseInt(sslSmtpPort),
-                    bounceAddress, socketTimeout, socketConnectionTimeout);
 
-            session = Session.getInstance(properties, authenticator);
+            properties.setProperty(EmailConstants.MAIL_PORT, this.smtpPort);
+            properties.setProperty(EmailConstants.MAIL_HOST, this.hostName);
+            properties.setProperty(EmailConstants.MAIL_DEBUG, String.valueOf(this.debug));
+
+            properties.setProperty(EmailConstants.MAIL_TRANSPORT_STARTTLS_ENABLE,
+                    isStartTLSEnabled() ? "true" : "false");
+            properties.setProperty(EmailConstants.MAIL_TRANSPORT_STARTTLS_REQUIRED,
+                    isStartTLSRequired() ? "true" : "false");
+
+            properties.setProperty(EmailConstants.MAIL_SMTP_SEND_PARTIAL,
+                    isSendPartial() ? "true" : "false");
+            properties.setProperty(EmailConstants.MAIL_SMTPS_SEND_PARTIAL,
+                    isSendPartial() ? "true" : "false");
+
+            if (this.authenticator != null)
+            {
+                properties.setProperty(EmailConstants.MAIL_SMTP_AUTH, "true");
+            }
+
+            if (isSSLOnConnect())
+            {
+                properties.setProperty(EmailConstants.MAIL_PORT, this.sslSmtpPort);
+                properties.setProperty(EmailConstants.MAIL_SMTP_SOCKET_FACTORY_PORT, this.sslSmtpPort);
+                properties.setProperty(EmailConstants.MAIL_SMTP_SOCKET_FACTORY_CLASS, "javax.net.ssl.SSLSocketFactory");
+                properties.setProperty(EmailConstants.MAIL_SMTP_SOCKET_FACTORY_FALLBACK, "false");
+            }
+
+            if ((isSSLOnConnect() || isStartTLSEnabled()) && isSSLCheckServerIdentity())
+            {
+                properties.setProperty(EmailConstants.MAIL_SMTP_SSL_CHECKSERVERIDENTITY, "true");
+            }
+
+            if (this.bounceAddress != null)
+            {
+                properties.setProperty(EmailConstants.MAIL_SMTP_FROM, this.bounceAddress);
+            }
+
+            if (this.socketTimeout > 0)
+            {
+                properties.setProperty(EmailConstants.MAIL_SMTP_TIMEOUT, Integer.toString(this.socketTimeout));
+            }
+
+            if (this.socketConnectionTimeout > 0)
+            {
+                properties.setProperty(EmailConstants.MAIL_SMTP_CONNECTIONTIMEOUT, Integer.toString(this.socketConnectionTimeout));
+            }
+
+            // changed this (back) to getInstance due to security exceptions
+            // caused when testing using maven
+            this.session = Session.getInstance(properties, this.authenticator);
         }
-        return session;
+        return this.session;
     }
-
-    private void setProperties(Properties properties, String hostName, int smtpPort, boolean debug,
-                               Authenticator authenticator, int sslSmtpPort,
-                               String bounceAddress, int socketTimeout, int socketConnectionTimeout) {
-
-        properties.setProperty(EmailConstants.MAIL_HOST, hostName);
-        properties.setProperty(EmailConstants.MAIL_PORT, String.valueOf(smtpPort));
-        properties.setProperty(EmailConstants.MAIL_DEBUG, String.valueOf(debug));
-
-        if (authenticator != null) {
-            properties.setProperty(EmailConstants.MAIL_SMTP_AUTH, "true");
-        }
-
-        if (isSSLOnConnect()) {
-            properties.setProperty(EmailConstants.MAIL_PORT, String.valueOf(sslSmtpPort));
-            properties.setProperty(EmailConstants.MAIL_SMTP_SOCKET_FACTORY_PORT, String.valueOf(sslSmtpPort));
-            properties.setProperty(EmailConstants.MAIL_SMTP_SOCKET_FACTORY_CLASS, "javax.net.ssl.SSLSocketFactory");
-            properties.setProperty(EmailConstants.MAIL_SMTP_SOCKET_FACTORY_FALLBACK, "false");
-        }
-
-        if ((isSSLOnConnect() || isStartTLSEnabled()) && isSSLCheckServerIdentity()) {
-            properties.setProperty(EmailConstants.MAIL_SMTP_SSL_CHECKSERVERIDENTITY, "true");
-        }
-
-        if (bounceAddress != null) {
-            properties.setProperty(EmailConstants.MAIL_SMTP_FROM, bounceAddress);
-        }
-
-        if (socketTimeout > 0) {
-            properties.setProperty(EmailConstants.MAIL_SMTP_TIMEOUT, String.valueOf(socketTimeout));
-        }
-
-        if (socketConnectionTimeout > 0) {
-            properties.setProperty(EmailConstants.MAIL_SMTP_CONNECTIONTIMEOUT, String.valueOf(socketConnectionTimeout));
-        }
-    }
-
 
     /**
      * Sets the FROM field of the email to use the specified address. The email
@@ -649,7 +799,7 @@ public abstract class Email
     {
         if (emails == null || emails.length == 0)
         {
-            throw new EmailException(INVALID_ADDRESS_LIST_MSG);
+            throw new EmailException("Address List provided was invalid");
         }
 
         for (final String email : emails)
@@ -714,7 +864,7 @@ public abstract class Email
     {
         if (aCollection == null || aCollection.isEmpty())
         {
-            throw new EmailException(INVALID_ADDRESS_LIST_MSG);
+            throw new EmailException("Address List provided was invalid");
         }
 
         this.toList = new ArrayList<>(aCollection);
@@ -759,7 +909,7 @@ public abstract class Email
     {
         if (emails == null || emails.length == 0)
         {
-            throw new EmailException(INVALID_ADDRESS_LIST_MSG);
+            throw new EmailException("Address List provided was invalid");
         }
 
         for (final String email : emails)
@@ -823,7 +973,7 @@ public abstract class Email
     {
         if (aCollection == null || aCollection.isEmpty())
         {
-            throw new EmailException(INVALID_ADDRESS_LIST_MSG);
+            throw new EmailException("Address List provided was invalid");
         }
 
         this.ccList = new ArrayList<>(aCollection);
@@ -868,7 +1018,7 @@ public abstract class Email
     {
         if (emails == null || emails.length == 0)
         {
-            throw new EmailException(INVALID_ADDRESS_LIST_MSG);
+            throw new EmailException("Address List provided was invalid");
         }
 
         for (final String email : emails)
@@ -932,7 +1082,7 @@ public abstract class Email
     {
         if (aCollection == null || aCollection.isEmpty())
         {
-            throw new EmailException(INVALID_ADDRESS_LIST_MSG);
+            throw new EmailException("Address List provided was invalid");
         }
 
         this.bccList = new ArrayList<>(aCollection);
@@ -1011,7 +1161,7 @@ public abstract class Email
     {
         if (aCollection == null || aCollection.isEmpty())
         {
-            throw new EmailException(INVALID_ADDRESS_LIST_MSG);
+            throw new EmailException("Address List provided was invalid");
         }
 
         this.replyList = new ArrayList<>(aCollection);
@@ -1177,32 +1327,50 @@ public abstract class Email
         {
             this.message = this.createMimeMessage(this.getMailSession());
 
-            if (EmailUtils.isNotEmpty(this.subject)) {
-            this.message.setSubject(this.subject, EmailUtils.isNotEmpty(this.charset) ? this.charset : null);
+            if (EmailUtils.isNotEmpty(this.subject))
+            {
+                if (EmailUtils.isNotEmpty(this.charset))
+                {
+                    this.message.setSubject(this.subject, this.charset);
+                }
+                else
+                {
+                    this.message.setSubject(this.subject);
+                }
             }
-
 
             // update content type (and encoding)
             this.updateContentType(this.contentType);
 
-            if (this.content != null) {
-    boolean isTextPlainAndString = EmailConstants.TEXT_PLAIN.equalsIgnoreCase(this.contentType)
-                                   && this.content instanceof String;
-
-    if (isTextPlainAndString) {
-        this.message.setText(this.content.toString(), this.charset);
-    } else {
-        this.message.setContent(this.content, this.contentType);
-    }
-} else if (this.emailBody != null) {
-    if (this.contentType == null) {
-        this.message.setContent(this.emailBody);
-    } else {
-        this.message.setContent(this.emailBody, this.contentType);
-    }
-} else {
-    this.message.setText("");
-}
+            if (this.content != null)
+            {
+                if (EmailConstants.TEXT_PLAIN.equalsIgnoreCase(this.contentType)
+                        && this.content instanceof String)
+                {
+                    // EMAIL-104: call explicitly setText to use default mime charset
+                    //            (property "mail.mime.charset") in case none has been set
+                    this.message.setText(this.content.toString(), this.charset);
+                }
+                else
+                {
+                    this.message.setContent(this.content, this.contentType);
+                }
+            }
+            else if (this.emailBody != null)
+            {
+                if (this.contentType == null)
+                {
+                    this.message.setContent(this.emailBody);
+                }
+                else
+                {
+                    this.message.setContent(this.emailBody, this.contentType);
+                }
+            }
+            else
+            {
+                this.message.setText("");
+            }
 
             if (this.fromAddress != null)
             {
@@ -1266,7 +1434,7 @@ public abstract class Email
 
             if (this.popBeforeSmtp)
             {
-                
+                // TODO Why is this not a Store leak? When to close?
                 final Store store = session.getStore("pop3");
                 store.connect(this.popHost, this.popUsername, this.popPassword);
             }
@@ -1294,18 +1462,15 @@ public abstract class Email
             Transport.send(this.message);
             return this.message.getMessageID();
         }
-        catch (final MessagingException e) {
-        // Catch specific messaging exceptions
-        final String msg = "Sending the email to the following server failed : "
+        catch (final Throwable t)
+        {
+            final String msg = "Sending the email to the following server failed : "
                 + this.getHostName()
                 + ":"
                 + this.getSmtpPort();
-        throw new EmailException(msg, e);
-    } catch (final Exception e) {
-        // Catch other exceptions that might occur
-        final String msg = "Unexpected error occurred while sending email";
-        throw new EmailException(msg, e);
-    }
+
+            throw new EmailException(msg, t);
+        }
     }
 
     /**
@@ -1443,7 +1608,19 @@ public abstract class Email
         return this.startTlsEnabled || tls;
     }
 
-
+    /**
+     * Gets whether the client is configured to try to enable STARTTLS.
+     * See EMAIL-105 for reason of deprecation.
+     *
+     * @deprecated since 1.3, use isStartTLSEnabled() instead
+     * @return true if using STARTTLS for authentication, false otherwise
+     * @since 1.1
+     */
+    @Deprecated
+    public boolean isTLS()
+    {
+        return isStartTLSEnabled();
+    }
 
     /**
      * Utility to copy List of known InternetAddress objects into an
@@ -1483,7 +1660,15 @@ public abstract class Email
      * Returns whether SSL/TLS encryption for the transport is currently enabled (SMTPS/POPS).
      * See EMAIL-105 for reason of deprecation.
      *
-    
+     * @deprecated since 1.3, use isSSLOnConnect() instead
+     * @return true if SSL enabled for the transport
+     */
+    @Deprecated
+    public boolean isSSL()
+    {
+        return isSSLOnConnect();
+    }
+
     /**
      * Returns whether SSL/TLS encryption for the transport is currently enabled (SMTPS/POPS).
      *
@@ -1495,7 +1680,18 @@ public abstract class Email
         return sslOnConnect || ssl;
     }
 
-
+    /**
+     * Sets whether SSL/TLS encryption should be enabled for the SMTP transport upon connection (SMTPS/POPS).
+     * See EMAIL-105 for reason of deprecation.
+     *
+     * @deprecated since 1.3, use setSSLOnConnect() instead
+     * @param ssl whether to enable the SSL transport
+     */
+    @Deprecated
+    public void setSSL(final boolean ssl)
+    {
+        setSSLOnConnect(ssl);
+    }
 
     /**
      * Sets whether SSL/TLS encryption should be enabled for the SMTP transport upon connection (SMTPS/POPS).
