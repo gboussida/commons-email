@@ -120,9 +120,9 @@ public class EmailException
      *
      * @param out  the {@code PrintWriter} to use for output
      */
-    @Override
-    public void printStackTrace(final PrintWriter out)
-    {
-            super.printStackTrace(out);
-    }
+    //@Override
+    //public void printStackTrace(final PrintWriter out)
+    //{
+     //       super.printStackTrace(out);
+    //}
 }
