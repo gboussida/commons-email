@@ -17,9 +17,9 @@
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-parent</artifactId>
-      <version>64</version>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-parent</artifactId>
+        <version>64</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>commons-email</artifactId>
@@ -43,7 +43,7 @@
         <connection>scm:git:https://gitbox.apache.org/repos/asf/commons-email</connection>
         <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/commons-email</developerConnection>
         <url>https://gitbox.apache.org/repos/asf/commons-email</url>
-    </scm> 
+    </scm>
 
     <developers>
         <developer>
@@ -52,7 +52,7 @@
             <email>dion@apache.org</email>
             <organization>The Apache Software Foundation</organization>
             <roles>
-              <role>Java Developer</role>
+                <role>Java Developer</role>
             </roles>
         </developer>
         <developer>
@@ -115,7 +115,7 @@
             <email>hps@intermeta.de</email>
             <organization>INTERMETA - Gesellschaft fuer Mehrwertdienste mbH</organization>
             <roles>
-              <role>Java Developer</role>
+                <role>Java Developer</role>
             </roles>
             <timezone>2</timezone>
         </developer>
@@ -138,9 +138,9 @@
         <developer>
             <name>Siegfried Goeschl</name>
             <id>sgoeschl</id>
-            <email>sgoeschl@apache.org</email>            
+            <email>sgoeschl@apache.org</email>
             <roles>
-              <role>Java Developer</role>
+                <role>Java Developer</role>
             </roles>
             <timezone>2</timezone>
         </developer>
@@ -150,31 +150,31 @@
             <email>tn@apache.org</email>
             <organization>The Apache Software Foundation</organization>
             <roles />
-        </developer>        
+        </developer>
         <developer>
             <id>ggregory</id>
             <name>Gary Gregory</name>
             <email>ggregory at apache.org</email>
             <url>https://www.garygregory.com</url>
             <organization>The Apache Software Foundation</organization>
-            <organizationUrl>https://www.apache.org/</organizationUrl>      
+            <organizationUrl>https://www.apache.org/</organizationUrl>
             <roles>
-              <role>PMC Member</role>
+                <role>PMC Member</role>
             </roles>
             <timezone>America/New_York</timezone>
             <properties>
-              <picUrl>https://people.apache.org/~ggregory/img/garydgregory80.png</picUrl>
+                <picUrl>https://people.apache.org/~ggregory/img/garydgregory80.png</picUrl>
             </properties>
         </developer>
     </developers>
-    <contributors>    
+    <contributors>
         <contributor>
             <name>Bindul Bhowmik</name>
         </contributor>
         <contributor>
             <name>Colin Chalmers</name>
             <email>colin.chalmers@maxware.nl</email>
-        </contributor> 
+        </contributor>
         <contributor>
             <name>Frank Y. Kim</name>
             <email>frank.kim@clearink.com</email>
@@ -252,11 +252,11 @@
             <artifactId>junit-jupiter-api</artifactId>
             <scope>test</scope>
         </dependency>
-    <dependency>
-      <groupId>org.junit.vintage</groupId>
-      <artifactId>junit-vintage-engine</artifactId>
-      <scope>test</scope>
-    </dependency>
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-jdk14</artifactId>
@@ -269,18 +269,18 @@
             <version>2.15.0</version>
             <scope>test</scope>
         </dependency>
-    	<dependency>
-    		<groupId>org.subethamail</groupId>
-    		<artifactId>subethasmtp</artifactId>
-    		<version>3.1.7</version>
-    		<scope>test</scope>
+        <dependency>
+            <groupId>org.subethamail</groupId>
+            <artifactId>subethasmtp</artifactId>
+            <version>3.1.7</version>
+            <scope>test</scope>
             <exclusions>
                 <exclusion>
                     <groupId>javax.mail</groupId>
                     <artifactId>mail</artifactId>
                 </exclusion>
             </exclusions>
-    	</dependency>
+        </dependency>
         <dependency>
             <groupId>org.powermock</groupId>
             <artifactId>powermock-module-junit4</artifactId>
@@ -299,13 +299,40 @@
             <version>${easymock.version}</version>
             <scope>test</scope>
         </dependency>
-		<dependency>
-			<groupId>org.jsoup</groupId>
-			<artifactId>jsoup</artifactId>
-			<version>1.13.1</version> <!-- use the latest version -->
-		</dependency>
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.15.3</version> <!-- use the latest version -->
+        </dependency>
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-core</artifactId>
+            <version>1.36</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-generator-annprocess</artifactId>
+            <version>1.36</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/exec-maven-plugin -->
+        <dependency>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>3.1.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.evosuite.plugins/evosuite-maven-plugin -->
+        <dependency>
+            <groupId>org.evosuite.plugins</groupId>
+            <artifactId>evosuite-maven-plugin</artifactId>
+            <version>1.0.6</version>
+            <scope>test</scope>
+        </dependency>
 
-
+        <dependency>
+            <groupId>com.github.spotbugs</groupId>
+            <artifactId>spotbugs-maven-plugin</artifactId>
+            <version>4.0.4</version>
+        </dependency>
     </dependencies>
 
     <properties>
@@ -324,10 +351,10 @@
 
         <!-- override the default commons encoding property -->
         <commons.encoding>UTF-8</commons.encoding>
-        
+
         <powermock.version>2.0.9</powermock.version>
         <easymock.version>5.2.0</easymock.version>
-    </properties> 
+    </properties>
 
     <build>
         <defaultGoal>clean verify apache-rat:check japicmp:cmp pmd:check pmd:cpd-check spotbugs:check javadoc:javadoc</defaultGoal>
@@ -342,6 +369,7 @@
                         <exclude>org/apache/commons/mail/settings/*</exclude>
                         <exclude>**/Abstract*Test.java</exclude>
                     </excludes>
+                    <groups>org.openjdk.jmh</groups>
                 </configuration>
             </plugin>
             <plugin>
@@ -368,7 +396,7 @@
                         </manifestEntries>
                     </archive>
                 </configuration>
-            </plugin>            
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
@@ -376,65 +404,97 @@
                     <mavenExecutorId>forked-path</mavenExecutorId>
                 </configuration>
             </plugin>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-scm-publish-plugin</artifactId>
-            <configuration>
-              <ignorePathsToDelete>
-                <ignorePathToDelete>javadocs</ignorePathToDelete>
-              </ignorePathsToDelete>
-            </configuration>
-          </plugin>
-          <plugin>
-            <groupId>org.apache.rat</groupId>
-            <artifactId>apache-rat-plugin</artifactId>
-            <configuration>
-                <skip>true</skip>
-              <excludes>
-                <exclude>src/test/resources/eml/**</exclude>
-              </excludes>
-            </configuration>
-          </plugin>
-          <!-- Declaration place matters must be after gpg. -->
-          <plugin>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-release-plugin</artifactId>
-            <version>1.8.0</version>
-            <configuration>
-              <distSvnStagingUrl>scm:svn:https://dist.apache.org/repos/dist/dev/commons/email</distSvnStagingUrl>
-            </configuration>
-            <executions>
-              <execution>
-                <id>detatch-distributions</id>
-                <phase>verify</phase>
-                <goals>
-                  <goal>detach-distributions</goal>
-                </goals>
-              </execution>
-              <execution>
-                <id>compress-site</id>
-                <phase>site</phase>
-                <goals>
-                  <goal>compress-site</goal>
-                </goals>
-              </execution>
-              <execution>
-                <id>stage-distributions</id>
-                <phase>deploy</phase>
-                <goals>
-                  <goal>stage-distributions</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-          <plugin>
-            <groupId>com.github.spotbugs</groupId>
-            <artifactId>spotbugs-maven-plugin</artifactId>
-            <configuration>
-              <excludeFilterFile>${basedir}/src/conf/spotbugs-exclude-filter.xml</excludeFilterFile>
-            </configuration>
-          </plugin>
-            <!--Pitest-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-scm-publish-plugin</artifactId>
+                <configuration>
+                    <ignorePathsToDelete>
+                        <ignorePathToDelete>javadocs</ignorePathToDelete>
+                    </ignorePathsToDelete>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.rat</groupId>
+                <artifactId>apache-rat-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                    <excludes>
+                        <exclude>src/test/resources/eml/**</exclude>
+                        <exclude>.scaffolding_list.tmp</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+
+            <!-- Declaration place matters must be after gpg. -->
+            <plugin>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-release-plugin</artifactId>
+                <version>1.8.0</version>
+                <configuration>
+                    <distSvnStagingUrl>scm:svn:https://dist.apache.org/repos/dist/dev/commons/email</distSvnStagingUrl>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>detatch-distributions</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>detach-distributions</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>compress-site</id>
+                        <phase>site</phase>
+                        <goals>
+                            <goal>compress-site</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>stage-distributions</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>stage-distributions</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <configuration>
+                    <effort>Max</effort>
+                    <threshold>medium</threshold>
+                    <failOnError>true</failOnError>
+                    <includeFilterFile>${basedir}/src/conf/spotbugs-include-filter.xml</includeFilterFile>
+                    <excludeFilterFile>${basedir}/src/conf/spotbugs-exclude-filter.xml</excludeFilterFile>
+                    <plugins>
+                        <plugin>
+                            <groupId>com.h3xstream.findsecbugs</groupId>
+                            <artifactId>findsecbugs-plugin</artifactId>
+                            <version>1.12.0</version>
+                        </plugin>
+                    </plugins>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.11</version>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.pitest</groupId>
                 <artifactId>pitest-maven</artifactId>
@@ -448,31 +508,57 @@
                 </dependencies>
                 <configuration>
                     <targetClasses>
-                        <param>org.apache.commons.mail.*</param>
+                        <!-- Specify the classes/packages you want to mutate -->
+                        <targetClass>org.apache.commons.mail.*</targetClass>
                     </targetClasses>
                     <targetTests>
-                        <param>org.apache.commons.mail.test.*</param>
+                        <!-- Specify test classes/packages for mutation testing -->
+                        <targetTest>org.apache.commons.mail.*Test</targetTest>
                     </targetTests>
                 </configuration>
-            </plugin>
 
+                <executions>
+                    <execution>
+                        <id>pitest</id>
+                        <goals>
+                            <goal>mutationCoverage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.evosuite.plugins</groupId>
+                <artifactId>evosuite-maven-plugin</artifactId>
+                <version>1.0.6</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare</goal>
+                        </goals>
+                        <phase>process-test-classes</phase>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
+
+
     <distributionManagement>
-      <site>
-        <id>apache.website</id>
-        <name>Apache Website</name>
-        <url>${commons.deployment.protocol}://people.apache.org/www/commons.apache.org/email/</url>
-      </site>    
+        <site>
+            <id>apache.website</id>
+            <name>Apache Website</name>
+            <url>${commons.deployment.protocol}://people.apache.org/www/commons.apache.org/email/</url>
+        </site>
     </distributionManagement>
-    
+
     <reporting>
         <plugins>
             <!-- generate the changes report from changes.xml -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-changes-plugin</artifactId>
+                <version>2.12.1</version>
                 <configuration>
                     <issueLinkTemplate>%URL%/%ISSUE%</issueLinkTemplate>
                 </configuration>
@@ -483,10 +569,11 @@
                         </reports>
                     </reportSet>
                 </reportSets>
-            </plugin> 
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.3.1</version>
                 <configuration>
                     <configLocation>${basedir}/src/conf/checkstyle.xml</configLocation>
                     <enableRulesSummary>false</enableRulesSummary>
@@ -495,6 +582,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.21.2</version>
                 <configuration>
                     <targetJdk>${maven.compiler.target}</targetJdk>
                 </configuration>
@@ -505,74 +593,76 @@
                 <configuration>
                     <skip>true</skip>
                     <excludes>
-
                         <exclude>src/test/resources/eml/**</exclude>
                     </excludes>
                 </configuration>
-            </plugin>            
-            <plugin>
-              <groupId>com.github.spotbugs</groupId>
-              <artifactId>spotbugs-maven-plugin</artifactId>
-              <configuration>
-              </configuration>
             </plugin>
+            <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <configuration>
+                    <!-- <excludeFilterFile>${basedir}/spotbugs-exclude-filter.xml</excludeFilterFile>  -->
+                </configuration>
+            </plugin>
+
         </plugins>
     </reporting>
 
     <profiles>
-      <profile>
-        <id>java11</id>
-        <!-- For testing with Powermock. -->
-        <activation>
-          <jdk>[11,)</jdk>
-        </activation>
-        <build>
-          <plugins>
-            <plugin>
-              <!-- SpotBugs has false positives on Java 17:
-[ERROR] Medium: Load of known null value in org.apache.commons.mail.MultiPartEmail.attach(DataSource, String, String) [org.apache.commons.mail.MultiPartEmail] At MultiPartEmail.java:[line 421] NP_LOAD_OF_KNOWN_NULL_VALUE
-[ERROR] Medium: Redundant nullcheck of is which is known to be null in org.apache.commons.mail.MultiPartEmail.attach(DataSource, String, String) [org.apache.commons.mail.MultiPartEmail] Redundant null check at MultiPartEmail.java:[line 421] RCN_REDUNDANT_NULLCHECK_OF_NULL_VALUE
-[ERROR] Medium: Load of known null value in org.apache.commons.mail.resolver.DataSourceClassPathResolver.resolve(String, boolean) [org.apache.commons.mail.resolver.DataSourceClassPathResolver] At DataSourceClassPathResolver.java:[line 104] NP_LOAD_OF_KNOWN_NULL_VALUE
-[ERROR] Medium: Redundant nullcheck of is which is known to be null in org.apache.commons.mail.resolver.DataSourceClassPathResolver.resolve(String, boolean) [org.apache.commons.mail.resolver.DataSourceClassPathResolver] Redundant null check at DataSourceClassPathResolver.java:[line 104] RCN_REDUNDANT_NULLCHECK_OF_NULL_VALUE
-              -->
-              <groupId>com.github.spotbugs</groupId>
-              <artifactId>spotbugs-maven-plugin</artifactId>
-              <configuration>
-                <maxAllowedViolations>4</maxAllowedViolations>
-              </configuration>
-            </plugin>
-          </plugins>
-        </build>
-      </profile>
-      <profile>
-        <id>java17</id>
-        <!-- For testing with Powermock. -->
-        <activation>
-          <jdk>[17,)</jdk>
-        </activation>
-        <build>
-          <plugins>
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-surefire-plugin</artifactId>
-              <configuration>
-                <argLine>
-                  --illegal-access=permit
-                  --add-opens java.base/java.lang=ALL-UNNAMED
-                  --add-opens java.base/java.net=ALL-UNNAMED
-                  --add-opens java.base/java.io=ALL-UNNAMED
-                  --add-opens java.base/java.util=ALL-UNNAMED
-                  --add-opens java.base/java.util.regex=ALL-UNNAMED
-                  --add-opens java.base/java.nio.charset=ALL-UNNAMED
-                  --add-opens java.base/sun.nio.cs=ALL-UNNAMED
-                  --add-opens java.logging/java.util.logging=ALL-UNNAMED
-                </argLine>
-              </configuration>
-            </plugin>
-          </plugins>
-        </build>
-      </profile>
-          
+        <profile>
+            <id>java11</id>
+            <!-- For testing with Powermock. -->
+            <activation>
+                <jdk>[11,)</jdk>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <!-- SpotBugs has false positives on Java 17:
+          [ERROR] Medium: Load of known null value in org.apache.commons.mail.MultiPartEmail.attach(DataSource, String, String) [org.apache.commons.mail.MultiPartEmail] At MultiPartEmail.java:[line 421] NP_LOAD_OF_KNOWN_NULL_VALUE
+          [ERROR] Medium: Redundant nullcheck of is which is known to be null in org.apache.commons.mail.MultiPartEmail.attach(DataSource, String, String) [org.apache.commons.mail.MultiPartEmail] Redundant null check at MultiPartEmail.java:[line 421] RCN_REDUNDANT_NULLCHECK_OF_NULL_VALUE
+          [ERROR] Medium: Load of known null value in org.apache.commons.mail.resolver.DataSourceClassPathResolver.resolve(String, boolean) [org.apache.commons.mail.resolver.DataSourceClassPathResolver] At DataSourceClassPathResolver.java:[line 104] NP_LOAD_OF_KNOWN_NULL_VALUE
+          [ERROR] Medium: Redundant nullcheck of is which is known to be null in org.apache.commons.mail.resolver.DataSourceClassPathResolver.resolve(String, boolean) [org.apache.commons.mail.resolver.DataSourceClassPathResolver] Redundant null check at DataSourceClassPathResolver.java:[line 104] RCN_REDUNDANT_NULLCHECK_OF_NULL_VALUE
+                        -->
+                        <groupId>com.github.spotbugs</groupId>
+                        <artifactId>spotbugs-maven-plugin</artifactId>
+                        <configuration>
+                            <maxAllowedViolations>4</maxAllowedViolations>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>java17</id>
+            <!-- For testing with Powermock. -->
+            <activation>
+                <jdk>[17,)</jdk>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.2.3</version>
+                        <!--                <configuration>-->
+                        <!--                <argLine>-->
+                        <!--                    -illegal-access=permit-->
+                        <!--                    -add-opens java.base/java.lang=ALL-UNNAMED-->
+                        <!--                    -add-opens java.base/java.net=ALL-UNNAMED-->
+                        <!--                    -add-opens java.base/java.io=ALL-UNNAMED-->
+                        <!--                    -add-opens java.base/java.util=ALL-UNNAMED-->
+                        <!--                    -add-opens java.base/java.util.regex=ALL-UNNAMED-->
+                        <!--                    -add-opens java.base/java.nio.charset=ALL-UNNAMED-->
+                        <!--                    -add-opens java.base/sun.nio.cs=ALL-UNNAMED-->
+                        <!--                    -add-opens java.logging/java.util.logging=ALL-UNNAMED-->
+                        <!--                </argLine>-->
+                        <!--                </configuration>-->
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
         <profile>
             <id>rc</id>
             <distributionManagement>
@@ -583,8 +673,40 @@
                     <url>${commons.deployment.protocol}://people.apache.org/www/people.apache.org/builds/commons/${commons.componentid}/${commons.release.version}/${commons.rc.version}/site</url>
                 </site>
             </distributionManagement>
-        </profile>        
+        </profile>
+        <profile>
+            <id>benchmark</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>3.1.1</version> <!-- Use the latest version -->
+                        <executions>
+                            <execution>
+                                <id>benchmark</id>
+                                <phase>verify</phase> <!-- Adjust the phase as needed -->
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>java</executable>
+                                    <arguments>
+                                        <argument>-classpath</argument>
+                                        <classpath/>
+                                        <argument>org.openjdk.jmh.Main</argument>
+                                        <argument>-rf</argument>
+                                        <argument>json</argument>
+                                        <argument>-rff</argument>
+                                        <argument>target/jmh-result.json</argument>
+                                        <argument>org.apache.commons.mail.jmh.EmailBenchmarkTest</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
     </profiles>
-
-
 </project>
